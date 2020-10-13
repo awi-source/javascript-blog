@@ -45,8 +45,8 @@
 function generateTitleLinks(){
 console.log(generateTitleLinks);
   /* [DONE] remove contents of titleList */
-const titlelist = document.querySelector(optTitleListSelector);
-console.log(titlelist);
+const titleList = document.querySelector(optTitleListSelector);
+console.log(titleList);
 
  /* [DONE] for each article */
 const articles = document.querySelectorAll(optArticleSelector);
@@ -63,11 +63,11 @@ for(let article of articles){
 /* [DONE] create HTML of the link */
  const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
   console.log(linkHTML);
-/*[IN PROGRESS] insert link into titleList */
-titleList.innerHTML = titleList.innerHTML + linkHTML; 
-
+/*[DONE] insert link into titleList */
+titleList.innerHTML = titleList.innerHTML + linkHTML;  
 }
- 
+
+
 }
 
 generateTitleLinks();
