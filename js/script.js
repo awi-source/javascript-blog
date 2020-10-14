@@ -1,5 +1,5 @@
 {
-  'use strict'
+  'use strict';
 
   const titleClickHandler = function(event){
     event.preventDefault();
@@ -14,8 +14,8 @@
       console.log(activeLink);
     }
   
-      console.log('clickedElement (with plus):' +  clickedElement);
-      clickedElement.classList.add('active');
+    console.log('clickedElement (with plus):' +  clickedElement);
+    clickedElement.classList.add('active');
     
     const activeArticles = document.querySelectorAll('.posts article.active');
 
@@ -31,47 +31,46 @@
     console.log(targetArticle);
     
     targetArticle.classList.add('active');
-  }
+  };
   
   const optArticleSelector = '.post',
-  optTitleSelector = '.post-title',
-  optTitleListSelector = '.titles';
+    optTitleSelector = '.post-title',
+    optTitleListSelector = '.titles';
+      
+  function generateTitleLinks(){
+    console.log(generateTitleLinks);
+    const titleList = document.querySelector(optTitleListSelector);
+    console.log(titleList);
+    
+    let html = '';
+    const articles = document.querySelectorAll(optArticleSelector);
+    for(let article of articles){
+      console.log(article);
 
-function generateTitleLinks(){
-console.log(generateTitleLinks);
-const titleList = document.querySelector(optTitleListSelector);
-console.log(titleList);
-
- let html = '';
-const articles = document.querySelectorAll(optArticleSelector);
-for(let article of articles){
- console.log(article);
-
-  const articleId = article.getAttribute('id');
-  console.log(articleId);
+      const articleId = article.getAttribute('id');
+      console.log(articleId);
   
  
-  const articleTitle = article.querySelector(optTitleSelector).innerHTML;
-  console.log(articleTitle);
+      const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+      console.log(articleTitle);
    
-
- const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-  console.log(linkHTML);
+      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      console.log(linkHTML);
  
-html = html + linkHTML;
+      html = html + linkHTML;
 
-}
-titleList.innerHTML = html;
-console.log(html);
+    }
+    titleList.innerHTML = html;
+    console.log(html);
 
-const links = document.querySelectorAll('.titles a');
-console.log(links);
-for(let link of links){
-link.addEventListener('click', titleClickHandler);
-}
+    const links = document.querySelectorAll('.titles a');
+    console.log(links);
+    for(let link of links){
+      link.addEventListener('click', titleClickHandler);
+    }
 
-}
+  }
 
-generateTitleLinks();
+  generateTitleLinks();
 
 }
