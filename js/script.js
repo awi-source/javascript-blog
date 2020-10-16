@@ -4,31 +4,31 @@
 const titleClickHandler = function(event){
   event.preventDefault();
   const clickedElement = this;
-  console.log('Link was clicked!');
-  console.log(event);
+  //c0onsole.log('Link was clicked!');
+  //console.log(event);
  
   const activeLinks = document.querySelectorAll('.titles a.active');
 
   for(let activeLink of activeLinks){
     activeLink.classList.remove('active');
-    console.log(activeLink);
+    //console.log(activeLink);
   }
   
-  console.log('clickedElement (with plus):' +  clickedElement);
+  //console.log('clickedElement (with plus):' +  clickedElement);
   clickedElement.classList.add('active');
     
   const activeArticles = document.querySelectorAll('.posts article.active');
 
   for(let activeArticle of activeArticles){
     activeArticle.classList.remove('active');
-    console.log(activeArticle);
+    //console.log(activeArticle);
   }
     
   const articleSelector = clickedElement.getAttribute('href');
-  console.log(articleSelector);
+  //console.log(articleSelector);
    
   const targetArticle = document.querySelector(articleSelector);
-  console.log(targetArticle);
+  //console.log(targetArticle);
     
   targetArticle.classList.add('active');
 };
@@ -39,33 +39,33 @@ const optArticleSelector = '.post',
   optArticleTagsSelector = '.post-tags .list';
       
 function generateTitleLinks(){
-  console.log(generateTitleLinks); 
+  //console.log(generateTitleLinks); 
   const titleList = document.querySelector(optTitleListSelector);
-  console.log(titleList); 
+  //console.log(titleList); 
     
   let html = '';
   const articles = document.querySelectorAll(optArticleSelector);
   for(let article of articles){
-    console.log(article);
+    //console.log(article);
 
     const articleId = article.getAttribute('id');
-    console.log(articleId);
+    //console.log(articleId);
   
  
     const articleTitle = article.querySelector(optTitleSelector).innerHTML;
-    console.log(articleTitle);
+    //console.log(articleTitle);
    
     const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-    console.log(linkHTML);
+    //console.log(linkHTML);
  
     html = html + linkHTML;
 
   }
   titleList.innerHTML = html;
-  console.log(html);
+  //console.log(html);
 
   const links = document.querySelectorAll('.titles a');
-  console.log(links);
+  //console.log(links);
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
   }
@@ -82,26 +82,28 @@ function generateTags(){
   /* find tags wrapper */
     const tagsWrapper = article.querySelector(optArticleTagsSelector);
     console.log(tagsWrapper);
-  /* make html variable with empty string */
+    /* make html variable with empty string */
     let html = '';
-  /* get tags from data-tags attribute */
+    //console.log(html);
+    /* get tags from data-tags attribute */
     const articleTags = article.getAttribute('data-tags');
     console.log(articleTags);
-  /* split tags into array */
-  const articleTagsArray = articleTags.split(' ');
-  console.log(articleTagsArray);
-  /* START LOOP: for each tag */
+    /* split tags into array */
+    const articleTagsArray = articleTags.split(' ');
+    console.log(articleTagsArray);
+    /* START LOOP: for each tag */
     for(let tag of articleTagsArray){
       console.log(tag);
-  /* generate HTML of the link */
-      const tagHTML = '<li><a href="#tag-' + tag + '"><span>' + articleTags  + '</span></a></li>';
-      console.log(tagHTML);
-  /* add generated code to html variable */
-    html = html + tagHTML;
-    console.log(html);
-  /* END LOOP: for each tag */
+      /* generate HTML of the link */
+      const tagHTML = '<li><a href="#tag-' + tag + '">'  + tag + '</a></li>';
+      //console.log(tagHTML);
+      /* add generated code to html variable */
+     //html = `${html} ${tagHTML}`;
+     html = html + tagHTML + '  ';
+      //console.log(html);
+      /* END LOOP: for each tag */
     }
-  /* insert HTML of all the links into the tags wrapper */
+    /* insert HTML of all the links into the tags wrapper */
     tagsWrapper.innerHTML = html;
   /* END LOOP: for every article: */
   }
