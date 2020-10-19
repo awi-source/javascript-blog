@@ -84,6 +84,7 @@ const generateTitleLinks = function(customSelector = ''){
   const generateTags = function(){
     /* [NEW] create a new variable allTags with an empty array */
     let allTags = [];
+    console.log(allTags);
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
     //const articles = document.querySelectorAll(optArticleSelector + customSelector);
@@ -106,15 +107,18 @@ const generateTitleLinks = function(customSelector = ''){
       //console.log(tag);
       /* generate HTML of the link */
         const tagHTML = '<li><a href="#tag-' + tag + '">'  + tag + '</a></li>';
-        //console.log(tagHTML);
+        console.log(tagHTML);
         /* add generated code to html variable */
         //html = `${html} ${tagHTML}`;
         html = html + tagHTML + '  ';
         //console.log(html);
         /* [NEW] check if this link is NOT already in allTags */
-        if(allTags.indexOf(linkHTML) == -1){
-        /* [NEW] add generated code to allTags array */
-          allTags.push(linkHTML);
+        if(allTags.indexOf(linkHTML) == -1){ 
+        // /* [NEW] add generated code to allTags array */
+         allTags.push(linkHTML);
+        //if(allTags.indexOf(tagHTML) == -1){ 
+        //   /* [NEW] add generated code to allTags array */
+        //allTags.push(tagHTML);
         }
       /* END LOOP: for each tag */
       }
@@ -245,4 +249,4 @@ const generateTitleLinks = function(customSelector = ''){
     }
   };
   addClickListenerToAuthors();
-};
+  };
