@@ -104,9 +104,12 @@ const calculateTagsParams = function(tags){
   }
 };
 
-//const calcultateTagClass = function(count, params){
+const calcultateTagClass = function(count, params){
+  const normalizedCount = count - params.min;
+  const normalizedMax = params.max - params.min;
+  const percentage = normalizedCount / normalizedMax;
 
-//}
+}
 
 const generateTags = function(){
   /* [NEW] create a new variable allTags with an empty array */
@@ -168,8 +171,9 @@ const generateTags = function(){
   for(let tagHTML in allTags){
     /* [NEW] generate code of a link and add it to allTagsHTML */
     allTagsHTML += tagHTML + ' (' + allTags[tagHTML] + ') ';
-    //const tagLinkHTML = '<li><a href="#tag-' + tagHTML + ' class="' + calculateTagClass(allTags[tag], tagsParams) + '</a></li>';
-    //console.log('tagLinkHTML:', tagLinkHTML);
+    console.log(allTagsHTML);
+    const tagLinkHTML = '<li><a href="#tag-' + tag + ' class="' + calculateTagClass(allTags[tag], tagsParams) + '">' + tag + '</a></li>';
+    console.log('tagLinkHTML:', tagLinkHTML);
     /* [NEW] END LOOP: for each tag in allTags: */
   } 
   /*[NEW] add HTML from allTagsHTML to tagList */
