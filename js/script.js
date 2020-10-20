@@ -113,12 +113,12 @@ const generateTitleLinks = function(customSelector = ''){
         html = html + tagHTML + '  ';
         //console.log(html);
         /* [NEW] check if this link is NOT already in allTags */
-        if(allTags.indexOf(linkHTML) == -1){ 
-        // /* [NEW] add generated code to allTags array */
-         allTags.push(linkHTML);
-        //if(allTags.indexOf(tagHTML) == -1){ 
+        //if(allTags.indexOf(linkHTML) == -1){ 
+         /* [NEW] add generated code to allTags array */
+        //allTags.push(linkHTML);
+        if(allTags.indexOf(tagHTML) == -1){ 
         //   /* [NEW] add generated code to allTags array */
-        //allTags.push(tagHTML);
+        allTags.push(tagHTML);
         }
       /* END LOOP: for each tag */
       }
