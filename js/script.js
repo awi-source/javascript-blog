@@ -77,9 +77,9 @@ const generateTitleLinks = function(customSelector = ''){
     link.addEventListener('click', titleClickHandler);
   }
 
-
+}
   generateTitleLinks();
-  // console.log(generateTitleLinks);
+   console.log(generateTitleLinks);
 
   const generateTags = function(){
     /* [NEW] create a new variable allTags with an empty array */
@@ -249,4 +249,4 @@ const generateTitleLinks = function(customSelector = ''){
     }
   };
   addClickListenerToAuthors();
-  };
+  
