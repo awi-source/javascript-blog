@@ -167,8 +167,10 @@ const generateTags = function(){
   for(let tag in allTags){
     /* [NEW] generate code of a link and add it to allTagsHTML */
     const counterClass = calculateTagClass(allTags[tag], tagsParams);
-    const tagLinkHTML = `<li><a href="#tag-${tag}" class="tag-size-${counterClass}">${tag} (${allTags[tag]})</a></li> `;
+    const tagLinkHTML = `<li><a href="#tag-${tag}" class="tag-size-${counterClass}">${tag} </a>(${allTags[tag]})</li> `;
     allTagsHTML += tagLinkHTML;
+    console.log(allTagsHTML);
+    console.log(allTags[tag]);
     /* [NEW] END LOOP: for each tag in allTags: */
   } 
   /*[NEW] add HTML from allTagsHTML to tagList */
