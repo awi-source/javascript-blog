@@ -120,19 +120,30 @@ body {
 }
 .tags li {
   display: inline-block;
-}
+  
 .tag-size-1{
   font-size: 16px;
+  text-decoration: none;
+  color: rgb(223, 50, 78);
+}
 }
 .tag-size-2{
   font-size: 20px;
+  text-decoration: none;
+  color: blue;
 }
 .tag-size-3{
   font-size: 22px;
+  text-decoration: none;
+  color: rgb(50, 219, 35);
 }
 .tag-size-4{
   font-size: 24px;
+  text-decoration: none;
+  color: rgb(49, 6, 78);
 }
 .tag-size-5{
   font-size:26px;
+  text-decoration: none;
+  color: rgb(172, 26, 16)
 }
