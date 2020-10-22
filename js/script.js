@@ -39,7 +39,8 @@ const optArticleSelector = '.post',
   optArticleAuthorSelector = '.post-author',
   optTagsListSelector = '.tags.list',
   optCloudClassCount = 5,
-  optCloudClassPrefix = 'tag-size-';
+  optCloudClassPrefix = 'tag-size-',
+  optAuthorsListSelector = '.list.authors';
 
       
 const generateTitleLinks = function(customSelector = ''){
@@ -81,7 +82,7 @@ const generateTitleLinks = function(customSelector = ''){
 
 };
 generateTitleLinks();
-console.log(generateTitleLinks);
+//console.log(generateTitleLinks);
 
 
 const calculateTagsParams = function(tags){
@@ -109,11 +110,12 @@ const calculateTagClass = function(count, params){
   const normalizedMax = params.max - params.min;
   const percentage = normalizedCount / normalizedMax;
   return Math.floor( percentage * (optCloudClassCount - 1) + 1 );
-}
+};
 
 const generateTags = function(){
   /* [NEW] create a new variable allTags with an empty array */
   let allTags = {};
+  console.log(allTags);
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
   //const articles = document.querySelectorAll(optArticleSelector + customSelector);
@@ -127,7 +129,7 @@ const generateTags = function(){
     //console.log(html);
     /* get tags from data-tags attribute */
     const articleTags = article.getAttribute('data-tags');
-    //console.log(articleTags);
+    console.log(articleTags);
     /* split tags into array */
     const articleTagsArray = articleTags.split(' ');
     console.log(articleTagsArray);
@@ -232,6 +234,8 @@ addClickListenersToTags();
 
 
 const generateAuthors = function(){
+  let allAuthors = {};
+  console.log(allAuthors);
   //find all articles
   const articles = document.querySelectorAll(optArticleSelector);
   //start LOOP of every article
@@ -242,15 +246,39 @@ const generateAuthors = function(){
     let html ='';
     //get authors from data-author attribute
     const articleAuthor = article.getAttribute('data-author');
+    console.log(articleAuthor);
     //generate HTML code of the author description
     const authorHTML = 'by ' + '<a href="#author-' + articleAuthor + '">' +  articleAuthor + '</a>';
     //add generated code to the html variable
     html = html + authorHTML;  
-    //inser authorHTML into author wrapper
+    //check whether the author is NOT in allAuthors
+    if(!allAuthors[articleAuthor]){
+      allAuthors[articleAuthor] = 1; 
+    } else {
+      allAuthors[articleAuthor] ++;
+    }
+    //insert authorHTML into author wrapper
     authorWrapper.innerHTML = html;
     //end LOOP
   }
+  //new - find wrapper for authors in the right column
+  const authorsList = document.querySelector(optAuthorsListSelector);
+  //create variable for all authorHTML
+  let html = '';
+  //start loop for each article Author in allAuthors
+  for(let articleAuthor in allAuthors) {
+  //generate code of a link and add it to allAuthorHTML
+    //const authorLinkHTML = '<li><a href="#author-' + articleAuthor + '">' + articleAuthor + '</a>' + ' ' + '(' + allAuthors[articleAuthor] + ')' + '</li>';
+    const authorLinkHTML = `<li><a href="#author-${articleAuthor}"> ${articleAuthor} </a> (${allAuthors[articleAuthor]}) </li>`;
+    console.log(authorLinkHTML);
+    //insert authorLinkHTML into authorsRightWrapper
+    html = html + authorLinkHTML;
+    // console.log(allAuthorsHTML);
+  //end loop
+  }
+  authorsList.innerHTML = html;
 };
+  
 generateAuthors();
 
 const authorClickHandler = function(event){
