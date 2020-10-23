@@ -185,26 +185,7 @@
                   </ul>
                   <h2 class="section-title">Authors</h2>
                   <ul class="list authors">
-                    <!--<li>
-                      <a href="#">
-                        <span class="author-name">Kitty Toebean</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="author-name">Theo Tabby</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="author-name">George Tuxedo</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <span class="author-name">Marion Berry</span>
-                      </a>
-                    </li>-->
+                 
                   </ul>
                 </aside>
               </main>
@@ -216,7 +197,7 @@
           </script>
 
           <script id="template-tag-link" type="text/x-handlebars-template">
-            <li><a href="#{{tag}}"><span>{{tag}}</span></a></li>
+            <li><a href="#tag-{{tag}}"><span>{{tag}}</span></a></li>
           </script>
 
           <script id="template-author-link" type="text/x-handlebars-template">
@@ -226,7 +207,7 @@
           
             <script id="template-tag-cloud-link" type="text/x-handlebars-template">
               {{#each tags}}
-              <li><a href="#tag{{tag}}" class="tag-size-{{className}}">{{ tag }}</a>{{count}}</li>
+              <li><a href="#tag-{{tag}}" class="tag-size-{{className}}">{{ tag }}</a>{{count}}</li>
               {{/each}}
             </script>
 
